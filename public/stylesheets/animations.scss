@@ -1,0 +1,100 @@
+.typed-cursor {
+  color: white;
+  font-size: 2em;
+  opacity: 1;
+  -webkit-animation: blink 2s infinite;
+  -moz-animation: blink 2s infinite;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+#headerNavigation.tallHeader .galleryItem {
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: opacity, transform;
+  -o-transition-property: opacity, transform;
+  transition-property: opacity, transform;
+}
+
+#headerNavigation.tallHeader .galleryItem:first-of-type {
+  -webkit-transform: rotate(-10deg) scale(1.1);
+  -ms-transform: rotate(-10deg) scale(1.1);
+  -o-transform: rotate(-10deg) scale(1.1);
+  transform: rotate(-10deg) scale(1.1);
+}
+
+#headerNavigation.tallHeader .galleryItem:nth-of-type(2) {
+  -webkit-transform: rotate(-5deg) scale(1.1);
+  -ms-transform: rotate(-5deg) scale(1.1);
+  -o-transform: rotate(-5deg) scale(1.1);
+  transform: rotate(-5deg) scale(1.1);
+}
+
+#headerNavigation.tallHeader .galleryItem:nth-of-type(3) {
+  -webkit-transform: rotate(-13deg) scale(1.1);
+  -ms-transform: rotate(-13deg) scale(1.1);
+  -o-transform: rotate(-13deg) scale(1.1);
+  transform: rotate(-13deg) scale(1.1);
+}
+
+#headerNavigation.tallHeader .galleryItem:nth-of-type(4) {
+  -webkit-transform: rotate(10deg) scale(1.1);
+  -ms-transform: rotate(10deg) scale(1.1);
+  -o-transform: rotate(10deg) scale(1.1);
+  transform: rotate(10deg) scale(1.1);
+}
+
+#headerNavigation.tallHeader .galleryItem:nth-of-type(5) {
+  -webkit-transform: rotate(12deg) scale(1.1);
+  -ms-transform: rotate(12deg) scale(1.1);
+  -o-transform: rotate(12deg) scale(1.1);
+  transform: rotate(12deg) scale(1.1);
+}
+
+#headerNavigation.tallHeader .galleryItem:last-of-type {
+  -webkit-transform: rotate(-10deg) scale(1.1);
+  -ms-transform: rotate(-10deg) scale(1.1);
+  -o-transform: rotate(-10deg) scale(1.1);
+  transform: rotate(-10deg) scale(1.1);
+}
+
+#headerNavigation.tallHeader .galleryItem:hover {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transform: scale(1.4) rotate(0deg);
+  -ms-transform: scale(1.4) rotate(0deg);
+  -o-transform: scale(1.4) rotate(0deg);
+  transform: scale(1.4) rotate(0deg);
+}
+
+#headerNavigation {
+  height: 6em;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: height;
+  -o-transition-property: height;
+  transition-property: height;
+}
+
+#headerNavigation.tallHeader {
+  height: 500px;
+}

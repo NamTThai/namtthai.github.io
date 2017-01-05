@@ -1,0 +1,98 @@
+<dom-module id="testimonial-card">
+  <style>
+    #card {
+      margin: 1.25em auto;
+      border-radius: 2px;
+      max-width: 600px;
+      background-color: white;
+    }
+
+    header {
+      border-bottom: 1px solid lightgrey;
+      padding: 0.3em;
+    }
+
+    #title {
+      font-size: 1.2em;
+      margin: 0.3em;
+    }
+
+    #subtitle {
+      font-size: 1em;
+      font-style: italic;
+    }
+
+    #about {
+      padding: 0.6em;
+    }
+
+    #plus {
+      border-top: 1px solid lightgrey;
+      border-bottom: 1px solid lightgrey;
+      padding: 0.3em;
+    }
+
+    #delta {
+      padding: 0.3em;
+    }
+
+    #plus > ::content .tag {
+      border: 1px solid #01579b;
+      padding: 0 0.3em;
+      margin: 0.3em;
+      border-radius: 0.3em;
+    }
+
+    #delta > ::content .tag {
+      border: 1px solid #1b5e20;
+      padding: 0 0.3em;
+      margin: 0.3em;
+      border-radius: 0.3em;
+    }
+  </style>
+
+  <template>
+    <paper-material elevation="2" id="card">
+      <header class="row">
+        <iron-image src="{{profilepict}}" class="circle-image" width="60" height="60" preload fade sizing="contain"></iron-image>
+        <div>
+          <div id="title">{{title}}</div>
+          <div id="subtitle">{{subtitle}}</div>
+        </div>
+        <span class="flex"></span>
+        <paper-icon-button icon="arrow-forward" width="100" height="100" on-click="nextItem"></paper-icon-button>
+      </header>
+      <section id="about">
+        <content select="[memo]"></content>
+      </section>
+      <section id="plus" class="row">
+        <iron-icon src="../images/testimonial-plus.png"></iron-icon>
+        <content select="[plus]"></content>
+      </section>
+      <section id="delta" class="row">
+        <iron-icon src="../images/testimonial-delta.png"></iron-icon>
+        <content select="[delta]"></content>
+      </section>
+    </paper-material>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "testimonial-card",
+
+    behaviors: [
+      Polymer.NeonAnimationRunnerBehavior
+    ],
+
+    properties: {
+      profilepict: String,
+      title: String,
+      subtitle: String
+    },
+
+    nextItem: function() {
+      this.fire('next-item', {bubbles: true});
+    },
+  });
+</script>

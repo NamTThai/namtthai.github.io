@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Fun House</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Import various awesome support libraries -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/typed.js/dist/typed.min.js"></script>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway" type="text/css">
+
+  <!--  Load webcomponents-lite.min.js for polyfill support. -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <!-- Import enquire for javascript responsive support -->
+  <script src="bower_components/media-match/media.match.min.js"></script>
+  <script src="bower_components/enquire/dist/enquire.min.js"></script>
+
+  <!-- Normailze stylesheet for cross-browser support -->
+  <link rel="stylesheet" href="http://normalize-css.googlecode.com/svn/trunk/normalize.css">
+
+  <!-- Components, Styles and Scripts import -->
+  <link rel="import" href="components/components.vulcanized.html">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+
+</head>
+<body class="fullbleed layout vertical">
+  <template id="eventListener" is="dom-bind">
+    <paper-drawer-panel id="mainDrawerPanel" force-narrow>
+      <paper-menu drawer selected="0">
+        <paper-item hash="#features" on-click="reroutePanel">Features</paper-item>
+        <paper-item hash="#about" on-click="reroutePanel">Testimonials</paper-item>
+        <paper-item hash="#contact" on-click="reroutePanel">Contact</paper-item>
+      </paper-menu>
+      <section main class="relative">
+        <paper-header-panel id="headerPanel" mode="waterfall" on-content-scroll="navigationbarScrollHandler">
+          <paper-material id="navigationbar" class="paper-header" elevation="2">
+            <header id="headerNavigation" class="tallHeader">
+              <iron-image id="headerGallery" src="images/gallery1.png" preload fade sizing="contain"></iron-image>
+              <div id="subHeaderNavigation" class="row">
+                <iron-image id="profilePict" src="images/mini-profile.png" class="circle-image"
+                  preload fade sizing="contain"></iron-image>
+                <h1 id="headerTitle">NAM THAI</h1>
+                <div class="row flex">
+                  <div id="galleryItems">
+                    <iron-image class="galleryItem" src="images/gallery1.png" preload fade sizing="cover"></iron-image>
+                    <iron-image class="galleryItem" src="images/gallery2.png" preload fade sizing="cover"></iron-image>
+                    <iron-image class="galleryItem" src="images/gallery3.png" preload fade sizing="cover"></iron-image>
+                    <iron-image class="galleryItem" src="images/gallery4.png" preload fade sizing="cover"></iron-image>
+                    <iron-image class="galleryItem" src="images/gallery5.png" preload fade sizing="cover"></iron-image>
+                    <iron-image class="galleryItem" src="images/gallery6.png" preload fade sizing="cover"></iron-image>
+                  </div>
+                </div>
+                <paper-button class="navigationbar-button" on-click="reroute" hash="#features">
+                  features
+                  <a ></a>
+                </paper-button>
+                <paper-button class="navigationbar-button" on-click="reroute" hash="#about">
+                  testimonials
+                  <a ></a>
+                </paper-button>
+                <paper-button class="navigationbar-button" on-click="reroute" hash="#contact">
+                  contact
+                  <a ></a>
+                </paper-button>
+              </div>
+            </header>
+            <header id="welcome">
+              <span id="runningWelcomeText"></span>
+            </header>
+          </paper-material>
+
+          <div id="portfolioContent" class="content">
+              <section id="bumper"></section>
+              <section id="features">
+                <h2 class="portfolio-content-header">Feature Works</h2>
+                <content id="featuresWrapper" class="row">
+                  <feature-work>
+                    <div featureHeader>Showdown! on Android</div>
+                    <div featureSubHeader>Android Full Stack Development</div>
+                    <div featureContent>
+                      <a href="images/showdown-whatis.png" target="_blank">
+                        <iron-image src="images/showdown-whatis.png" width="100%" height="230" preload fade sizing="contain"></iron-image>
+                      </a>
+                      <div>My most successful project to date, this Android application is designed for the Pokemon competitive battling community. It is a fully-animated, multi-player gaming application, which provides players with more than 30 different battle formats.</div>
+                    </div>
+                    <div featureContent>
+                      <div>I had a lot of fun doing this project:<br>- Design and implement user interface, various tools, animations, etc.<br>- Be a project manager and code reviewer; here are my two awesome contributors:</div>
+                      <div class="row">
+                        <a href="https://github.com/TeToNN" target="_blank" class="col-6">
+                          <iron-image src="images/coder-teton.png" class="col-6" height="100" preload fade sizing="contain"></iron-image>
+                        </a>
+                        <a href="https://github.com/Lazloz" target="_blank" class="col-6">
+                          <iron-image src="images/coder-lazloz.png" class="col-6" height="100" preload fade sizing="contain"></iron-image>
+                        </a>
+                      </div>
+                    </div>
+                    <div featureContent>
+                      <div>The reception was great! The application averages 4.5 review from 869 reviews. It gots 27,907 downloads after the first 7 days on the Play Store</div>
+                      <a href="images/showdown-review.png" target="_blank">
+                        <iron-image src="images/showdown-review.png" width="100%" height="230" preload fade sizing="contain"></iron-image>
+                      </a>
+                    </div>
+                    <div featureContent>
+                      <div>I don't keep the project on the Play Store any more. Check out my project page (left) and the awesome parent web application by Zarel (right)</div>
+                      <div class="row">
+                        <a href="http://www.smogon.com/forums/threads/update-apr-12-1-1-available-showdown-app-for-android-beta.3526473/#post-5969110" target="_blank" class="col-6">
+                          <iron-image src="images/showdown-smogon.png" class="col-6" height="100" preload fade sizing="contain"></iron-image>
+                        </a>
+                        <a href="http://pokemonshowdown.com/" target="_blank" class="col-6">
+                          <iron-image src="images/showdown.png" class="col-6" height="100" preload fade sizing="contain"></iron-image>
+                        </a>
+                      </div>
+                    </div>
+                    <div featureTech class="tag">Java</div>
+                    <div featureTech class="tag">Android</div>
+                    <div featureTech class="tag">Android Studio</div>
+                    <div featureTech class="tag">Git/GitHub</div>
+                  </feature-work>
+                  <feature-work>
+                    <div featureHeader>Multi-GPU Bisection Algorithm</div>
+                    <div featureSubHeader>Academic Research</div>
+                    <div featureContent>I picked up parallel programming in 2013 and it was super fun. This project took advantage of parallel programming on 4 GPUs to speed up eigenvalue calculation by approximately 60% comparing to 1 GPU.</div>
+                    <div featureContent>
+                      I and my research partner presented this project poster at GPU Technology Conference 2015 in San Jose, California
+                      <a href="images/gtc.png" target="_blank">
+                        <iron-image src="images/gtc-mini.png" width="100%" height="380" preload fade sizing="contain"></iron-image>
+                      </a>
+                    </div>
+                    <div featureTech class="tag">C/C++</div>
+                    <div featureTech class="tag">CUDA</div>
+                  </feature-work>
+                </content>
+              </section>
+              <section id="about">
+                <h2 class="portfolio-content-header">Testimonials</h2>
+                <iron-pages selected="0" on-next-item="nextTestimonial">
+                  <testimonial-card title="Nam Thai" subtitle="Software Engineer" profilepict="images/about-namthai.png">
+                    <div memo>Hello, please tap the arrow to see what my professors, coworkers and friends say about me!</div>
+                    <div plus>These are things that I'm good at</div>
+                    <div delta>These are things that I should improve upon</div>
+                  </testimonial-card>
+                  <testimonial-card title="PlaceHolder" subtitle="PlaceHolder" profilepict="images/coder-teton.png">
+                    <div memo>PlaceHolder</div>
+                    <div plus class="tag">placeholder</div>
+                    <div delta class="tag">placeholder</div>
+                  </testimonial-card>
+                </iron-pages>
+              </section>
+              <section id="contact">
+                <h2 class="portfolio-content-header">Contact</h2>
+                <contact-form></contact-form>
+              </section>
+              <section id="bumperBottom"></section>
+            </div>
+
+        </paper-header-panel>
+        <div id="fabContainer" class="content">
+          <paper-fab id="scrollToTop" on-click="scrollToTop" icon="expand-less"></paper-fab>
+        </div>
+      </section>
+    </paper-drawer-panel>
+  </template>
+</body>
+</html>
