@@ -1,0 +1,62 @@
+<!-- Cursor emoji are copyrighted by JapaneseEmoticons.ME -->
+
+<script>
+  'use strict';
+
+  var preEmojis = ["(ﾉ´ヮ´)ﾉ*:･ﾟ✧", "(○$´∀`)ゞ", "(ノಠ益ಠ)ノ彡┻━┻", "(*´_ゝ｀)"];
+  var postEmojis = ["( ´•௰•`)", "(Θ︹Θ)ს", "┬─┬ノ(ಠ_ಠノ)", "(*´_ゝ｀)"];
+  var runningWelcomeText;
+  var cursor;
+
+  document.addEventListener('WebComponentsReady', function() {
+    if (window.matchMedia("only screen and (min-width: " + headerResponsiveScreenSize + ")").matches) {
+      _runWelcomeText();
+    }
+  });
+
+  function _changeCursorChar(newChar) {
+    $(cursor).html(newChar);
+  }
+
+  function _onWelcomeEnd() {
+    if ($(cursor).length) {
+      $(cursor).remove();
+    }
+    if ($(runningWelcomeText).length) {
+      $(runningWelcomeText).remove();
+    }
+    $("#welcome").remove();
+    $("#headerNavigation").fadeIn(2000);
+  }
+
+  function _runWelcomeText() {
+    runningWelcomeText = $("#runningWelcomeText");
+
+    $("#headerNavigation").hide();
+    $("#welcome").show();
+
+    var i = 0;
+    $(runningWelcomeText).typed({
+      strings: ["Hello! ^1000 Come on in! ^2000", "Welcome to my ^1000 uhm ^1000 ah ^4000",
+      "Urg this is not working... ^2000<br> OK keep it professional...",
+      "^1000 May I ^1000 have ^1000 the pleasure? ^3000"],
+      typeSpeed: 0,
+      startDelay: 1000,
+      backSpeed: 100,
+      cursorChar: preEmojis[0],
+      callback: function() {
+        _onWelcomeEnd();
+      },
+      preStringTyped: function() {
+        cursor = $(runningWelcomeText).siblings(".typed-cursor");
+        _changeCursorChar(preEmojis[i]);
+      },
+      onStringTyped: function() {
+        _changeCursorChar(postEmojis[i]);
+        i++;
+      }
+    });
+
+  }
+
+</script>

@@ -1,0 +1,115 @@
+<dom-module id="contact-form">
+  <style>
+    #card {
+      margin: 1.25em auto;
+      border-radius: 2px;
+      max-width: 600px;
+      position: relative;
+      background-color: white;
+    }
+
+    #wrapper {
+      padding: 0.6em;
+      align-items: center;
+      position: relative;
+    }
+
+    header {
+      margin: 0.3em;
+    }
+
+    #header {
+      font-size: 1.4em;
+    }
+
+    #resume {
+      font-size: 1em;
+      font-style: italic;
+      display: none;
+    }
+
+    #emailIcon:hover {
+      cursor: pointer;
+    }
+
+    #contact {
+      color: white;
+    }
+
+    .contact-item {
+      margin: auto;
+      width: 32px;
+      height: 32px;
+    }
+
+    paper-dialog {
+      max-height: 100%;
+    }
+  </style>
+
+  <template>
+    <paper-material id="card" elevation="2">
+      <div id="wrapper" class="row">
+        <header state="header" on-click="changeHeader">
+          <span id="header">Let's get in touch!</span>
+          <span id="resume">Please email me for my resume :)</span>
+          <paper-ripple></paper-ripple>
+        </header>
+        <iron-icon data-dialog="modal" id="emailIcon" icon="communication:email" alt="email"
+          class="contact-item" on-click="showEmail">
+          <paper-ripple></paper-ripple>
+        </iron-icon>
+        <a href="https://github.com/NamTThai" class="contact-item" target="_blank">
+          <iron-icon src="../images/github.ico" class="contact-item" alt="github">
+            <paper-ripple></paper-ripple>
+          </iron-icon>
+        </a>
+        <a href="https://www.linkedin.com/in/namthai92" class="contact-item" target="_blank">
+          <iron-icon src="../images/linkedin.png" class="contact-item" alt="linkedin">
+            <paper-ripple></paper-ripple>
+          </iron-icon>
+        </a>
+      </div>
+    </paper-material>
+
+    <paper-dialog id="modal" modal>
+      <p>nam.thai.cs@gmail.com</p>
+      <div class="buttons">
+        <paper-button dialog-confirm autofocus>Copy to clipboard</paper-button>
+      </div>
+    </paper-dialog>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "contact-form",
+
+    changeHeader: function(event) {
+      var header = event.target.parentElement;
+      var state = header.getAttribute("state");
+      var headerTitle = this.$.header;
+      var resume = this.$.resume;
+
+      if (state === "header") {
+        $(headerTitle).fadeOut(function() {
+          $(resume).fadeIn();
+        });
+        header.setAttribute("state", "resume");
+      } else {
+        $(resume).fadeOut(function() {
+          $(headerTitle).fadeIn();
+        });
+        header.setAttribute("state", "header");
+      }
+    },
+
+    showEmail: function(event) {
+      var id = event.target.getAttribute('data-dialog');
+      var dialog = document.getElementById(id);
+      if (dialog) {
+        dialog.open();
+      }
+    }
+  });
+</script>
